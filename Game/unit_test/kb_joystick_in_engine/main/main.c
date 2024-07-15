@@ -17,6 +17,7 @@ void handleKeyboard(void* pvParameter)
     while(1)
     {
         Engine_Detect(engine);
+        /*
         for(uint8_t key = 0; key<64; key++)
         {
             printf("%#x: %d", key, Engine_Keyboard_isKeyRelease(engine, key));
@@ -30,6 +31,8 @@ void handleKeyboard(void* pvParameter)
             }
         }
         printf("\n");
+        */
+       printf("Button: x: %d\ty: %d\n", Engine_Joystick_getX(engine), Engine_Joystick_getY(engine));
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }

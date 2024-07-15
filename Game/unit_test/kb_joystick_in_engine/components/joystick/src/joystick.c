@@ -62,7 +62,7 @@ void deleteJoystick(Joystick* joystick)
     free(joystick);
 }
 
-void detectJoystick(Joystick* joystick)
+void Joystick_Detect(Joystick* joystick)
 {
     int x_raw, y_raw;
     adc_oneshot_read(joystick->hadc1, ADC_CHANNEL_7, &x_raw);
@@ -89,7 +89,7 @@ void detectJoystick(Joystick* joystick)
         joystick->y = 0;
 }
 
-bool notZero(Joystick* joystick)
+bool Joystick_notZero(Joystick* joystick)
 {
     int x_raw, y_raw;
     adc_oneshot_read(joystick->hadc1, ADC_CHANNEL_7, &x_raw);
@@ -97,32 +97,32 @@ bool notZero(Joystick* joystick)
     return abs(x_raw - joystick->x_offset) > joystick->threshold || abs(y_raw - joystick->y_offset) > joystick->threshold;
 }
 
-int16_t getX(Joystick* joystick)
+int16_t Joystick_getX(Joystick* joystick)
 {
     return joystick->x;
 }
 
-int16_t getY(Joystick* joystick)
+int16_t Joystick_getY(Joystick* joystick)
 {
     return joystick->y;
 }
 
-bool getButton(Joystick* joystick)
+bool Joystick_getButton(Joystick* joystick)
 {
     return joystick->button;
 }
 
-double getAngle(Joystick* joystick)
+double Joystick_getAngle(Joystick* joystick)
 {
     return atan2(joystick->y, joystick->x) * 180 / 3.1415926;
 }
 
-double getMagnitude(Joystick* joystick)
+double Joystick_getMagnitude(Joystick* joystick)
 {
     return sqrt((double)joystick->x * (double)joystick->x + (double)joystick->y * (double)joystick->y);
 }
 
-void setThreshold(Joystick* joystick, uint8_t threshold)
+void Joystick_setThreshold(Joystick* joystick, uint8_t threshold)
 {
     joystick->threshold = threshold;
 }

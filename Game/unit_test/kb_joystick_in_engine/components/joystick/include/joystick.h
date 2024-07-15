@@ -18,14 +18,14 @@ typedef struct joystick
 
 Joystick* newJoystick();
 void deleteJoystick(Joystick* joystick);
-void detectJoystick(Joystick* joystick);
-bool notZero(Joystick* joystick);
-int16_t getX(Joystick* joystick);
-int16_t getY(Joystick* joystick);
-bool getButton(Joystick* joystick);
-double getAngle(Joystick* joystick);
-double getMagnitude(Joystick* joystick);
-void setThreshold(Joystick* joystick, uint8_t threshold);
+void Joystick_Detect(Joystick* joystick);
+bool Joystick_notZero(Joystick* joystick);
+int16_t Joystick_getX(Joystick* joystick);
+int16_t Joystick_getY(Joystick* joystick);
+bool Joystick_getButton(Joystick* joystick);
+double Joystick_getAngle(Joystick* joystick);
+double Joystick_getMagnitude(Joystick* joystick);
+void Joystick_setThreshold(Joystick* joystick, uint8_t threshold);
 
 
 
