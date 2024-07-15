@@ -53,5 +53,7 @@ dkms.conf
 
 .vscode/
 build/
+managed_components/
+managed_components
 
 .DS_Store
